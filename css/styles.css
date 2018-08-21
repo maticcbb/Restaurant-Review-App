@@ -304,3 +304,70 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
+
+/* ====================== Responsive width ====================== */
+
+@media only screen and (max-width: 600px) {
+ header {
+   display: flex;
+   flex-direction: column;
+ }
+
+ header nav {
+   order: 0;
+ }
+
+#restaurants-list li {
+  width: auto;
+}
+
+ header #breadcrumb {
+   order: 1;
+   padding-right: 0;
+   padding-left: 0;
+   width: 411px;
+   text-align: center;
+ }
+
+ .inside {
+   display: flex;
+   flex-direction: row;
+   width: 411px;
+ }
+
+ .inside header {
+   order: 0;
+   width: 411px;
+ }
+
+ .inside #map-container {
+   order: 2;
+   position: relative;
+   width: 411px;
+   top: 130px;
+   height: 300px;
+ }
+
+ .inside #restaurant-container {
+   order: 3;
+   position: relative;
+   margin: auto;
+   width: 411px;
+   text-align: center;
+   padding: 140px 10px 30px 20px;
+ }
+
+ .inside #reviews-container {
+   width: 95%;
+   margin: auto;
+   padding: 30px 40px 40px 20px;
+  
+ }
+
+ .inside #footer {
+   order: 4;
+   width: 411px;
+   padding: 10px;
+ }
+
+ }
