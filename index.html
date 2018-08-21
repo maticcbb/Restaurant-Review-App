@@ -46,12 +46,12 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRlXOFnBUs6knNM6gG52lJaEleUXgEapo&callback=initMap"></script>
 <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('/sw.js')
       .then(function () {
-        console.log("Service worker registered!.");
+        console.log("Service worker registered !.");
       })
       .catch(function (err) {
-        console.log("No it didn't. This happened: ", err)
+        console.log("Service worker registration error : ", err)
       });
   }
 </script>
