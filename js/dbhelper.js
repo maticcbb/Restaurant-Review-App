@@ -1,6 +1,22 @@
 /**
  * Common database helper functions.
  */
+
+
+ // Service Worker
+ if ('serviceWorker' in navigator) {
+   navigator.serviceWorker
+     .register('./js/sw.js', {
+       scope: ''
+     })
+     .then(function (registration) {
+       console.log("Service Worker registration is complete:", registration.scope);
+
+     }).catch(function (error) {
+       console.log("Service Worker registration failed:" , error);
+     });
+ }
+
 class DBHelper {
 
   /**
@@ -178,4 +194,5 @@ class DBHelper {
   } */
 
 }
+
 
