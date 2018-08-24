@@ -43,7 +43,21 @@
   crossorigin=""></script>
 <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
 <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
-<script type="application/javascript" charset="utf-8" src="js/sw.js"></script>
+<script>
+  // Service Worker
+if ('serviceWorker' in navigator) {
+
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(registration => {
+      // Registration was successful
+      console.log("registration successful with scope: ", registration.scope);
+    })
+    .catch(err => {
+      // registration failed :frowning:
+      console.log(" registration failed: ", err);
+    })
+};
+</script>
 <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRlXOFnBUs6knNM6gG52lJaEleUXgEapo&callback=initMap"></script> -->
 
 

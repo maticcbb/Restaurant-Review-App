@@ -14,7 +14,7 @@ var filesToCache = [
     './img/6.jpg',
     './img/7.jpg',
     './img/8.jpg',
-    './img/9.jpp',
+    './img/9.jpg',
     './img/10.jpg',
     './js/dbhelper.js',
     './js/restaurant_info.js',
@@ -24,20 +24,25 @@ var filesToCache = [
 ];
 
 self.addEventListener('install', function (event) {
+    // Perform install steps
     event.waitUntil(
-        caches.open(staticCacheName)
+        caches.open(CACHE_NAME)
         .then(function (cache) {
+            console.log('Opened cache');
             return cache.addAll(filesToCache);
         })
     );
 });
 
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', function (event) {
     event.respondWith(
-        filesToCache.match(event.request, {
-            ignoreSearch: true
-        }).then(response => {
-            return response || fetch(event.request);
-        }).catch(err => console.log(err))
+        caches.match(event.request)
+        .then(function (response) {
+            // Cache hit - return response
+            if (response) {
+                return response;
+            }
+            return fetch(event.request);
+        })
     );
 });
